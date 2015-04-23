@@ -6,5 +6,5 @@ Ensimmäinen nappula alkaa liikuttaa kuvaa edestakaisin ruudun ylälaidan ja ala
 Toisen nappulan painallus nopeuttaa pompotusvauhtia.
 Kolmas nappula pysäyttää pompotuksen ja palauttaa kuvan lähtöpisteeseen.
 
-Esimerkki:
+Esimerkkisovellus, jota voi käyttää pohjana:
 http://jsbin.com/rizihojebe/14/edit?html,css,js,output
