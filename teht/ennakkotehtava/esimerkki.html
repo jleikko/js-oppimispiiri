@@ -7,7 +7,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <meta charset="utf-8">
-  <title>JS Bin</title>
+  <title>Move My Picture</title>
 <style id="jsbin-css">
 .ilmaa {
   padding: 10px 10px;
@@ -17,31 +17,34 @@
 </head>
 <body>
   <div class="panel panel-default ilmaa">
-    <h1>Move my picture</h1>
+    <h1>Move My Picture</h1>
     <button id="move" class="btn btn-success ilmaa"><span class="glyphicon glyphicon-play"></span> Move</button><button id="reset" class="btn btn-info ilmaa"><span class="glyphicon glyphicon-refresh"></span> Reset</button><br/>
   <img id="kuva" src="http://jaakko.leikko.net/img/cv_jaakko_kuva.jpg"/>
   </div>
 <script id="jsbin-javascript">
-$(document).ready(createEventListeners);
+var MmpApp = {};
+MmpApp.Kuva = {
+  tagId: "#kuva",
+  
+  siirra: function(){
+    $(MmpApp.Kuva.tagId).animate({
+      marginLeft: "+=100"
+    }, 300);
+  },
 
-function createEventListeners() {
-  $( "#move" ).click(siirraKuva);
-  $( "#reset" ).click(alkuun);
-}
+  alkuun: function() {
+    $(MmpApp.Kuva.tagId).animate({
+      marginLeft: "0"
+    }, 600);
+  }
+};
 
+MmpApp.kuunteleNappuloita = function () {
+  $( "#move" ).click(MmpApp.Kuva.siirra);
+  $( "#reset" ).click(MmpApp.Kuva.alkuun);
+};
 
-function siirraKuva(){
-  $("#kuva").animate({
-    marginLeft: "+=100"
-  }, 300);
-}
-
-function alkuun() {
-  $("#kuva").animate({
-    marginLeft: "0"
-  }, 600);
-}
-
+$(document).ready(MmpApp.kuunteleNappuloita);
 </script>
 </body>
 </html>
